@@ -6,8 +6,7 @@ game_flags = {'kitchen':False,'living room':False, 'bedroom': False, 'ending': F
 # adjust code to correlate with the right room
 # add timers to make text flow better
 # add negative score multipliers for bad ends?
-# use if statment to confirm item found?
-print('hello')
+# use if statment to confirm item found with additional items?
 def intro():
     print('''you've heard stories of the mansion down the street has many artifacts
        that are worth quite a bit of money. So tonight, youve decided to go 
@@ -30,18 +29,19 @@ def roomchoice(room_number):
 
 def ending():
     # depending on score, gives player a differnet ending
+    # need to fix score order
     global total_score
     game_flags['ending'] = True
-    if total_score > 200:
+    if total_score >= 600:
+        print('''pockets full of look you walk out of the house satisfied with your
+                gains.''')
+    elif total_score == 400:
+        print('''aquiring 2 items was risky, but it will pay off once these items
+                 get sold for a quick buck.''')
+    elif total_score == 200:
         print('''after taking only 1 item, the presence became too much
                  and you fled into the night. After only a few hours, 
                   you become incredibly ill and pass shortly after''')
-    elif total_score > 400:
-        print('''aquiring 2 items was risky, but it will pay off once these items
-                 get sold for a quick buck.''')
-    elif total_score > 600:
-        print('''pockets full of look you walk out of the house satisfied with your
-                gains.''')
     else:
         print('''After feeling the dark presence, you decided to turn around
               and leave.''')
@@ -146,9 +146,10 @@ while playagain == 'yes' or playagain == 'y':
         living_room()
     else:
         playagain = 'no'
+        print('Would you like to play again? yes or no?')
+        playagain = input()
 # get play again to function properly
 ending()
 time.sleep(2)
 print(f'Your total score was {total_score}')
-print('Would you like to play again? yes or no?')
-playagain = input()
+
