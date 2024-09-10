@@ -1,7 +1,7 @@
 import time 
 
 total_score = 0
-game_flags = {'kitchen':False,'living room':False, 'bedroom': False, 'ending': False }
+game_flags = {'kitchen':False,'living room':False, 'bedroom': False, 'ending': False } # might be redundent
 # maybe change scores?
 # adjust code to correlate with the right room
 # add timers to make text flow better
@@ -146,9 +146,9 @@ while playagain == 'yes' or playagain == 'y':
         living_room()
     else:
         playagain = 'no'
-    
-    ending()
-    time.sleep(2)
-    print(f'Your total score was {total_score}')
-    print('Would you like to play again? yes or no?')
-    playagain = input()
+# get play again to function properly
+ending()
+time.sleep(2)
+print(f'Your total score was {total_score}')
+print('Would you like to play again? yes or no?')
+playagain = input()
