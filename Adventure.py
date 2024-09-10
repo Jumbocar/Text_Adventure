@@ -7,7 +7,7 @@ game_flags = {'kitchen':False,'living room':False, 'bedroom': False, 'ending': F
 # add timers to make text flow better
 # add negative score multipliers for bad ends?
 # use if statment to confirm item found?
-
+print('hello')
 def intro():
     print('''you've heard stories of the mansion down the street has many artifacts
        that are worth quite a bit of money. So tonight, youve decided to go 
