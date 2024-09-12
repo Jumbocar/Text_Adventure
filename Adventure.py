@@ -146,10 +146,10 @@ while playagain == 'yes' or playagain == 'y':
         living_room()
     else:
         playagain = 'no'
+        ending()
+        time.sleep(2)
         print('Would you like to play again? yes or no?')
         playagain = input()
-# get play again to function properly
-ending()
-time.sleep(2)
+# check if play again adds total score into previous play.
 print(f'Your total score was {total_score}')
 
