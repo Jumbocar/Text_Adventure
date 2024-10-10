@@ -1,3 +1,5 @@
+#Treasure Haunt#
+
 import time 
 
 total_score = 0
@@ -117,8 +119,15 @@ def bedroom():
         print('''after rummaging thorugh the dressers, the only
                 thing of substance is the amount of dust now on you.''')
     elif area_check == '2':
-        print('''checking underneath the bed reveals nothing but the wall
-                 on the other side of the room.''')
+        print('''checking underneath the bed reveals an ominous looking doll
+                with pins pushed into it. Take it?''')
+        time.sleep(2)
+        print('Take: 1 | Leave as is: 2')
+        take_doll = input()
+        if take_doll == '1':
+            total_score = total_score - 100
+        else:
+            print('You stuff the doll back under the bed.')
     else:
         print('''Inside the closet you notice a little box, inside is a
                 very expensive diamond necklace.''')
