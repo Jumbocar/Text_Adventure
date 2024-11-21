@@ -11,8 +11,8 @@ game_flags = {'kitchen':False,'living room':False, 'bedroom': False, 'ending': F
 # use if statment to confirm item found with additional items?
 def intro():
     print('''you've heard stories of the mansion down the street has many artifacts
-       that are worth quite a bit of money. So tonight, youve decided to go 
-       take a look and see what you can find.''')
+       that are worth quite a bit of money. So tonight, you've decided to go 
+       take a look.''')
     time.sleep(3)
     print('''As you enter the mansion, the air around you becomes heavy. This place
        is dangerous. However you need the money. There are 3 rooms from the
@@ -116,11 +116,17 @@ def bedroom():
         area_check = input()
     #checks area and loops back till player finds the diamond necklace
     if area_check == '1':
-        print('''after rummaging thorugh the dressers, the only
-                thing of substance is the amount of dust now on you.''')
+        print('''after rummaging through the dressers,in-between some clothes
+                you find a trinket. take it?''')
+        time.sleep(2)
+        print('Take: 1 | Leave as is: 2')
+        take_trinket = input()
+        if take_trinket == '1':
+            total_score = total_score - 100
+        else:
+            print('You tuck the trinket back into the dresser')
     elif area_check == '2':
-        print('''checking underneath the bed reveals an ominous looking doll
-                with pins pushed into it. Take it?''')
+        print('''checking underneath the bed reveals an ominous looking doll. Take it?''')
         time.sleep(2)
         print('Take: 1 | Leave as is: 2')
         take_doll = input()
@@ -145,6 +151,7 @@ intro()
 
 playagain = 'yes'
 while playagain == 'yes' or playagain == 'y':
+    time.sleep(2)
     intro2()
     room_number = input()
     if roomchoice(room_number) == '1':
