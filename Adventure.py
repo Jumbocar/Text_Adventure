@@ -41,9 +41,12 @@ def ending():
         print('''aquiring 2 items was risky, but it will pay off once these items
                  get sold for a quick buck.''')
     elif total_score == 200:
-        print('''after taking only 1 item, the presence became too much
-                 and you fled into the night. After only a few hours, 
+        print('''after taking something from the house, A presence follows
+                 you home. After only a few hours, 
                   you become incredibly ill and pass shortly after''')
+    elif total_score == -200:
+        print('''After grabbing the item, you tried to leave. However, the front doors were locked.
+              turning around a dark presence consumes you.''')
     else:
         print('''After feeling the dark presence, you decided to turn around
               and leave.''')
@@ -63,7 +66,7 @@ def living_room():
         print('''you reach your hand up into the fireplace, and feel
                 a hidden metal door. You open it and find a large pearl.''')
         time.sleep(2)
-        print('take: 1 leave as is: 2')
+        print('Take (1) | Leave (2)')
         take_watch = input()
         if take_watch == '1':
             print('you put the pearl into your back pocket')
@@ -88,15 +91,22 @@ def kitchen():
         area_check = input()
     #checks area and loops back till player finds the watch
     if area_check == '1':
-        print('''You check around all the dusty cupboards
-                 and find nothing worth of value.''')
+        print('''You check around all the dusty cupboards and find a monkeys paw. Take it?''')
+        time.sleep(2)
+        print('Take (1) | Leave (2)')
+        take_monkey_paw = input()
+        if take_monkey_paw == '1':
+            print('You put the monkeys paw in your backpack')
+            total_score = total_score - 200
+        else:
+            print('You put the paw back in the cupboard. Why is this even here?')
     elif area_check == '2':
         print('''While looking through the kitchen shelves,
                  you come across old watch. Take it?''')
-        print('take: 1 leave as is: 2')
+        print('Take (1) | leave (2)')
         take_watch = input()
         if take_watch == '1':
-            print('you put the watch in your left pocket')
+            print('you put the watch in your backpack')
             total_score = total_score + 200
             game_flags['kitchen'] = game_flags['kitchen'] = True
         else:
@@ -119,26 +129,27 @@ def bedroom():
         print('''after rummaging through the dressers,in-between some clothes
                 you find a trinket. take it?''')
         time.sleep(2)
-        print('Take: 1 | Leave as is: 2')
+        print('Take (1) | Leave (2)')
         take_trinket = input()
         if take_trinket == '1':
-            total_score = total_score - 100
+            total_score = total_score - 200
         else:
             print('You tuck the trinket back into the dresser')
     elif area_check == '2':
         print('''checking underneath the bed reveals an ominous looking doll. Take it?''')
         time.sleep(2)
-        print('Take: 1 | Leave as is: 2')
+        print('Take (1) | Leave (2)')
         take_doll = input()
         if take_doll == '1':
-            total_score = total_score - 100
+            total_score = total_score - 200
+            print('You stuff the doll into your backpack')
         else:
             print('You stuff the doll back under the bed.')
     else:
         print('''Inside the closet you notice a little box, inside is a
                 very expensive diamond necklace.''')
         time.sleep(1)
-        print('take: 1 leave as is: 2')
+        print('Take (1) | Leave (2)')
         take_necklace = input()
         if take_necklace == '1':
             print('you put the necklace in your right pocket')
