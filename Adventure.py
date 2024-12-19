@@ -4,6 +4,7 @@ import time
 
 total_score = 0
 game_flags = {'kitchen':False,'living room':False, 'bedroom': False, 'ending': False } # might be redundent
+#change item variables to 'object_take'
 # maybe change scores?
 # adjust code to correlate with the right room
 # add timers to make text flow better
@@ -35,18 +36,21 @@ def ending():
     global total_score
     game_flags['ending'] = True
     if total_score >= 600:
-        print('''pockets full of look you walk out of the house satisfied with your
+        print('''backpack full of loot you walk out of the house satisfied with your
                 gains.''')
     elif total_score == 400:
-        print('''aquiring 2 items was risky, but it will pay off once these items
+        print('''aquiring this many items was risky, but it will pay off once these items
                  get sold for a quick buck.''')
     elif total_score == 200:
         print('''after taking something from the house, A presence follows
                  you home. After only a few hours, 
                   you become incredibly ill and pass shortly after''')
     elif total_score == -200:
-        print('''After grabbing the item, you tried to leave. However, the front doors were locked.
+        print('''After grabbing some item, you tried to leave. However, the front doors were locked.
               turning around a dark presence consumes you.''')
+    elif total_score == -400:
+        print('''After grabbing that last item, you feel an overwelmingly dark force approach you,
+        quickly erasing you from existance. Nobody will remember you''')
     else:
         print('''After feeling the dark presence, you decided to turn around
               and leave.''')
@@ -75,7 +79,15 @@ def living_room():
         else:
             print('you slip the pearl back into the compartment and close the door')
     elif area_check == '2':
-        print('''after searching all the end tables you come back empty handed''')
+        print('''after searching all the end tables you come across a bloodied ring. Take it?''')
+        time.sleep(2)
+        print('Take (1) | Leave (2)')
+        Object_take = input()
+        if Object_take == '1':
+            print('You put the bloodied ring in your backpack')
+            total_score = total_score - 200
+        else:
+            print('You stick the bloodied ring back in the end table that you found it in.')
     else:
         print('''you find some pocket lent''')
 
@@ -161,6 +173,7 @@ def bedroom():
 intro()
 
 playagain = 'yes'
+#Fix play again score not reseting
 while playagain == 'yes' or playagain == 'y':
     time.sleep(2)
     intro2()
