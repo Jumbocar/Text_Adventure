@@ -3,12 +3,11 @@
 import time 
 
 total_score = 0
-game_flags = {'kitchen':False,'living room':False, 'bedroom': False, 'ending': False } # might be redundent
+game_flags = {'ending': False } 
 #change item variables to 'object_take'
 # maybe change scores?
 # adjust code to correlate with the right room
 # add timers to make text flow better
-# add negative score multipliers for bad ends?
 # use if statment to confirm item found with additional items?
 def intro():
     print('''you've heard stories of the mansion down the street has many artifacts
@@ -42,9 +41,8 @@ def ending():
         print('''aquiring this many items was risky, but it will pay off once these items
                  get sold for a quick buck.''')
     elif total_score == 200:
-        print('''after taking something from the house, A presence follows
-                 you home. After only a few hours, 
-                  you become incredibly ill and pass shortly after''')
+        print('''after taking something from the house, A presence follows you home. 
+              After only a few hours, you become incredibly ill and pass shortly after''')
     elif total_score == -200:
         print('''After grabbing some item, you tried to leave. However, the front doors were locked.
               turning around a dark presence consumes you.''')
@@ -67,15 +65,14 @@ def living_room():
         area_check = input()
     #checks area and loops back till player finds the watch
     if area_check == '1':
-        print('''you reach your hand up into the fireplace, and feel
-                a hidden metal door. You open it and find a large pearl.''')
+        print('''you reach your hand up into the fireplace, and feel a hidden metal door. 
+You open it and find a large pearl.''')
         time.sleep(2)
         print('Take (1) | Leave (2)')
         take_watch = input()
         if take_watch == '1':
             print('you put the pearl into your back pocket')
             total_score = total_score + 200
-            game_flags['living room'] = game_flags['living room'] = True
         else:
             print('you slip the pearl back into the compartment and close the door')
     elif area_check == '2':
