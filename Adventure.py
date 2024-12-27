@@ -4,9 +4,8 @@ import time
 
 total_score = 0
 game_flags = {'ending': False } 
-#change item variables to 'object_take'
-# maybe change scores?
-# adjust code to correlate with the right room
+#fix being able to take items multiple times. Item flags?
+#fix using function?
 # add timers to make text flow better
 # use if statment to confirm item found with additional items?
 def intro():
@@ -163,7 +162,6 @@ def bedroom():
         if take_necklace == '1':
             print('you put the necklace in your right pocket')
             total_score = total_score + 200
-            game_flags['bedroom'] = game_flags['bedroom'] = True
         else:
             print('you put the necklace back into the closet')
 
