@@ -2,6 +2,19 @@
 
 import time 
 
+#game items
+#------------------------------------------#
+#pearl DONE
+take_pearl = 0
+#ring ()
+take_ring = 0
+#trinket
+take_trinket = 0
+#watch
+take_watch = 0
+#monkeys paw
+take_monkey_paw = 0
+
 total_score = 0
 game_flags = {'ending': False } 
 #fix being able to take items multiple times. Item flags?
@@ -55,41 +68,51 @@ def ending():
 def living_room():
     global game_flags
     global total_score
+    global take_pearl
+    global take_ring
     area_check = ''
     if area_check != '2':
         print('''The living room seems anicent, not a single tv in sight.
-                 there are plenty of end tables other places to look.''')
+there are plenty of end tables other places to look.''')
         time.sleep(3)
         print('fireplace: 1 - end tables: 2 - between cushions: 3')
         area_check = input()
     #checks area and loops back till player finds the watch
     if area_check == '1':
-        print('''you reach your hand up into the fireplace, and feel a hidden metal door. 
+        if take_pearl == '1' or take_pearl == '2':
+            print('You already found the pearl')
+        else:
+            print('''you reach your hand up into the fireplace, and feel a hidden metal door. 
 You open it and find a large pearl.''')
-        time.sleep(2)
-        print('Take (1) | Leave (2)')
-        take_watch = input()
-        if take_watch == '1':
-            print('you put the pearl into your back pocket')
-            total_score = total_score + 200
-        else:
-            print('you slip the pearl back into the compartment and close the door')
+            time.sleep(2)
+            print('Take (1) | Leave (2)')
+            take_pearl = input()
+            if take_pearl == '1':
+                print('you put the pearl into your back pocket')
+                total_score = total_score + 200
+            else:
+                print('you slip the pearl back into the compartment and close the door')
     elif area_check == '2':
-        print('''after searching all the end tables you come across a bloodied ring. Take it?''')
-        time.sleep(2)
-        print('Take (1) | Leave (2)')
-        Object_take = input()
-        if Object_take == '1':
-            print('You put the bloodied ring in your backpack')
-            total_score = total_score - 200
+        if take_ring == '1' or take_ring == '2':
+            print('You already found the ring')
         else:
-            print('You stick the bloodied ring back in the end table that you found it in.')
+            print('''after searching all the end tables you come across a bloodied ring. Take it?''')
+            time.sleep(2)
+            print('Take (1) | Leave (2)')
+            take_ring = input()
+            if take_ring == '1':
+                print('You put the bloodied ring in your backpack')
+                total_score = total_score - 200
+            else:
+                print('You stick the bloodied ring back in the end table that you found it in.')
     else:
         print('''you find some pocket lent''')
 
 def kitchen():
     global game_flags
     global total_score
+    global take_monkey_paw
+    global take_watch
     area_check = ''
     if area_check != '2':
         print('''The kitchen is quite large and luxurious. There are many
@@ -99,26 +122,32 @@ def kitchen():
         area_check = input()
     #checks area and loops back till player finds the watch
     if area_check == '1':
-        print('''You check around all the dusty cupboards and find a monkeys paw. Take it?''')
-        time.sleep(2)
-        print('Take (1) | Leave (2)')
-        take_monkey_paw = input()
-        if take_monkey_paw == '1':
-            print('You put the monkeys paw in your backpack')
-            total_score = total_score - 200
+        if take_monkey_paw == '1' or take_monkey_paw == '2':
+            print("you already have the monkey paw")
         else:
-            print('You put the paw back in the cupboard. Why is this even here?')
+            print('''You check around all the dusty cupboards and find a monkeys paw. Take it?''')
+            time.sleep(2)
+            print('Take (1) | Leave (2)')
+            take_monkey_paw = input()
+            if take_monkey_paw == '1':
+                print('You put the monkeys paw in your backpack')
+                total_score = total_score - 200
+            else:
+                print('You put the paw back in the cupboard. Why is this even here?')
     elif area_check == '2':
-        print('''While looking through the kitchen shelves,
-                 you come across old watch. Take it?''')
-        print('Take (1) | leave (2)')
-        take_watch = input()
-        if take_watch == '1':
-            print('you put the watch in your backpack')
-            total_score = total_score + 200
-            game_flags['kitchen'] = game_flags['kitchen'] = True
+        if take_watch == '1' or take_watch == '2':
+            print('You already have the watch, no need to search here again.')
         else:
-            print('you put the watch back on the shelf')
+            print('''While looking through the kitchen shelves,
+                 you come across old watch. Take it?''')
+            print('Take (1) | leave (2)')
+            take_watch = input()
+            if take_watch == '1':
+                print('you put the watch in your backpack')
+                total_score = total_score + 200
+                game_flags['kitchen'] = game_flags['kitchen'] = True
+            else:
+                print('you put the watch back on the shelf')
     else:
         print('''you check the dusty appliances but find nothing but rotted food''')
 
