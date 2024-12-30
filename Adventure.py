@@ -14,6 +14,8 @@ take_trinket = 0
 take_watch = 0
 #monkeys paw
 take_monkey_paw = 0
+#take doll
+take_doll = 0
 
 total_score = 0
 game_flags = {'ending': False } 
@@ -88,7 +90,7 @@ You open it and find a large pearl.''')
             print('Take (1) | Leave (2)')
             take_pearl = input()
             if take_pearl == '1':
-                print('you put the pearl into your back pocket')
+                print('you put the pearl into your backpack')
                 total_score = total_score + 200
             else:
                 print('you slip the pearl back into the compartment and close the door')
@@ -123,7 +125,7 @@ def kitchen():
     #checks area and loops back till player finds the watch
     if area_check == '1':
         if take_monkey_paw == '1' or take_monkey_paw == '2':
-            print("you already have the monkey paw")
+            print("you already have the monkey paw, no need to search here again.")
         else:
             print('''You check around all the dusty cupboards and find a monkeys paw. Take it?''')
             time.sleep(2)
@@ -139,7 +141,7 @@ def kitchen():
             print('You already have the watch, no need to search here again.')
         else:
             print('''While looking through the kitchen shelves,
-                 you come across old watch. Take it?''')
+you come across old watch. Take it?''')
             print('Take (1) | leave (2)')
             take_watch = input()
             if take_watch == '1':
@@ -153,43 +155,52 @@ def kitchen():
 
 def bedroom():
     global game_flags
-    global total_score 
+    global total_score
+    global take_trinket
+    global take_doll
     area_check = ''
     if area_check != '3':
         print('''The bedroom is very spacous and enough dressers to fill
-                 an entire house. What would you like to search?''')
+an entire house. What would you like to search?''')
         time.sleep(3)
         print('dressers: 1 - under bed: 2 - closets: 3')
         area_check = input()
     #checks area and loops back till player finds the diamond necklace
     if area_check == '1':
-        print('''after rummaging through the dressers,in-between some clothes
-                you find a trinket. take it?''')
-        time.sleep(2)
-        print('Take (1) | Leave (2)')
-        take_trinket = input()
-        if take_trinket == '1':
-            total_score = total_score - 200
+        if take_trinket == '1' or take_trinket == '2':
+            print('You already found the trinket, no need to search here again.')
         else:
-            print('You tuck the trinket back into the dresser')
+            print('''after rummaging through the dressers,in-between some clothes
+you find a trinket. take it?''')
+            time.sleep(2)
+            print('Take (1) | Leave (2)')
+            take_trinket = input()
+            if take_trinket == '1':
+                print('You put the trinket in your backpack')
+                total_score = total_score - 200
+            else:
+                print('You tuck the trinket back into the dresser')
     elif area_check == '2':
-        print('''checking underneath the bed reveals an ominous looking doll. Take it?''')
-        time.sleep(2)
-        print('Take (1) | Leave (2)')
-        take_doll = input()
-        if take_doll == '1':
-            total_score = total_score - 200
-            print('You stuff the doll into your backpack')
+        if take_doll == '1' or take_doll == '2':
+            print('You already found the doll, no need to search here again.')
         else:
-            print('You stuff the doll back under the bed.')
+            print('''checking underneath the bed reveals an ominous looking doll. Take it?''')
+            time.sleep(2)
+            print('Take (1) | Leave (2)')
+            take_doll = input()
+            if take_doll == '1':
+                total_score = total_score - 200
+                print('You stuff the doll into your backpack')
+            else:
+                print('You stuff the doll back under the bed.')
     else:
         print('''Inside the closet you notice a little box, inside is a
-                very expensive diamond necklace.''')
+very expensive diamond necklace.''')
         time.sleep(1)
         print('Take (1) | Leave (2)')
         take_necklace = input()
         if take_necklace == '1':
-            print('you put the necklace in your right pocket')
+            print('you put the necklace in your backpack')
             total_score = total_score + 200
         else:
             print('you put the necklace back into the closet')
