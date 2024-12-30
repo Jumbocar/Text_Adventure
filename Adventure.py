@@ -19,23 +19,21 @@ take_doll = 0
 
 total_score = 0
 game_flags = {'ending': False } 
-#fix being able to take items multiple times. Item flags?
 #fix using function?
 # add timers to make text flow better
 # use if statment to confirm item found with additional items?
 def intro():
     print('''you've heard stories of the mansion down the street has many artifacts
-       that are worth quite a bit of money. So tonight, you've decided to go 
-       take a look.''')
+that are worth quite a bit of money. So tonight, you've decided to go take a look.
+----------------------------------------------------------------------------------''')
     time.sleep(3)
     print('''As you enter the mansion, the air around you becomes heavy. This place
-       is dangerous. However you need the money. There are 3 rooms from the
-       main enterence. Which will you enter?''')
+is dangerous. However you need the money. There are 3 rooms from the main enterence. Which will you enter?
+----------------------------------------------------------------------------------''')
 
 def intro2():
     time.sleep(2)
-    print('''There are 3 rooms from the
-       main enterence. Which will you enter?''')
+    print('''There are 3 rooms from the main enterence. Which will you enter?''')
     time.sleep(1)
     print('Kitchen: 1 - Bedroom: 2 - living room: 3 - leave: 4')
 
@@ -49,23 +47,21 @@ def ending():
     global total_score
     game_flags['ending'] = True
     if total_score >= 600:
-        print('''backpack full of loot you walk out of the house satisfied with your
-                gains.''')
+        print('''backpack full of loot you walk out of the house satisfied with your gains.''')
     elif total_score == 400:
         print('''aquiring this many items was risky, but it will pay off once these items
-                 get sold for a quick buck.''')
+get sold for a quick buck.''')
     elif total_score == 200:
         print('''after taking something from the house, A presence follows you home. 
-              After only a few hours, you become incredibly ill and pass shortly after''')
+After only a few hours, you become incredibly ill and pass shortly after''')
     elif total_score == -200:
         print('''After grabbing some item, you tried to leave. However, the front doors were locked.
-              turning around a dark presence consumes you.''')
+turning around a dark presence consumes you.''')
     elif total_score == -400:
         print('''After grabbing that last item, you feel an overwelmingly dark force approach you,
-        quickly erasing you from existance. Nobody will remember you''')
+quickly erasing you from existance. Nobody will remember you''')
     else:
-        print('''After feeling the dark presence, you decided to turn around
-              and leave.''')
+        print('''After feeling the dark presence, you decided to turn around and leave.''')
 
 def living_room():
     global game_flags
@@ -74,7 +70,7 @@ def living_room():
     global take_ring
     area_check = ''
     if area_check != '2':
-        print('''The living room seems anicent, not a single tv in sight.
+        print('''The living room seems anicent, not a single tv in sight. 
 there are plenty of end tables other places to look.''')
         time.sleep(3)
         print('fireplace: 1 - end tables: 2 - between cushions: 3')
@@ -118,7 +114,7 @@ def kitchen():
     area_check = ''
     if area_check != '2':
         print('''The kitchen is quite large and luxurious. There are many
-             cupboards and shelves to check. What would you like to look at?''')
+cupboards and shelves to check. What would you like to look at?''')
         time.sleep(3)
         print('cupbards: 1 - shelves: 2 - appliances: 3')
         area_check = input()
