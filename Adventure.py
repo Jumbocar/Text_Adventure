@@ -1,6 +1,10 @@
 #Treasure Haunt#
 
 import time 
+#Improvement ideas
+
+# add timers to make text flow better
+# be able to go back and grab item you prevously put back
 
 #game items
 #------------------------------------------#
@@ -16,12 +20,11 @@ take_watch = 0
 take_monkey_paw = 0
 #take doll
 take_doll = 0
+#take necklance
+take_necklace = 0
 
 total_score = 0
 game_flags = {'ending': False } 
-#fix using function?
-# add timers to make text flow better
-# use if statment to confirm item found with additional items?
 def intro():
     print('''you've heard stories of the mansion down the street has many artifacts
 that are worth quite a bit of money. So tonight, you've decided to go take a look.
@@ -154,6 +157,7 @@ def bedroom():
     global total_score
     global take_trinket
     global take_doll
+    global take_necklace
     area_check = ''
     if area_check != '3':
         print('''The bedroom is very spacous and enough dressers to fill
@@ -190,16 +194,19 @@ you find a trinket. take it?''')
             else:
                 print('You stuff the doll back under the bed.')
     else:
-        print('''Inside the closet you notice a little box, inside is a
-very expensive diamond necklace.''')
-        time.sleep(1)
-        print('Take (1) | Leave (2)')
-        take_necklace = input()
-        if take_necklace == '1':
-            print('you put the necklace in your backpack')
-            total_score = total_score + 200
+        if take_necklace == '1' or take_necklace == '2':
+            print('You already found the necklace, no reason to look here')
         else:
-            print('you put the necklace back into the closet')
+            print('''Inside the closet you notice a little box, inside is a
+very expensive diamond necklace.''')
+            time.sleep(1)
+            print('Take (1) | Leave (2)')
+            take_necklace = input()
+            if take_necklace == '1':
+                print('you put the necklace in your backpack')
+                total_score = total_score + 200
+            else:
+                print('you put the necklace back into the closet')
 
 intro()
 
