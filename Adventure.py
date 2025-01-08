@@ -92,6 +92,7 @@ You open it and find a large pearl.''')
                 print('you put the pearl into your backpack')
                 total_score = total_score + 200
             else:
+                take_pearl = 0
                 print('you slip the pearl back into the compartment and close the door')
     elif area_check == '2':
         if take_ring == '1' or take_ring == '2':
@@ -105,6 +106,7 @@ You open it and find a large pearl.''')
                 print('You put the bloodied ring in your backpack')
                 total_score = total_score - 200
             else:
+                take_ring = 0
                 print('You stick the bloodied ring back in the end table that you found it in.')
     else:
         print('''you find some pocket lent''')
@@ -134,6 +136,7 @@ cupboards and shelves to check. What would you like to look at?''')
                 print('You put the monkeys paw in your backpack')
                 total_score = total_score - 200
             else:
+                take_monkey_paw = 0
                 print('You put the paw back in the cupboard. Why is this even here?')
     elif area_check == '2':
         if take_watch == '1' or take_watch == '2':
@@ -148,6 +151,7 @@ you come across old watch. Take it?''')
                 total_score = total_score + 200
                 game_flags['kitchen'] = game_flags['kitchen'] = True
             else:
+                take_watch = 0
                 print('you put the watch back on the shelf')
     else:
         print('''you check the dusty appliances but find nothing but rotted food''')
@@ -179,6 +183,7 @@ you find a trinket. take it?''')
                 print('You put the trinket in your backpack')
                 total_score = total_score - 200
             else:
+                take_trinket = 0
                 print('You tuck the trinket back into the dresser')
     elif area_check == '2':
         if take_doll == '1' or take_doll == '2':
@@ -192,6 +197,7 @@ you find a trinket. take it?''')
                 total_score = total_score - 200
                 print('You stuff the doll into your backpack')
             else:
+                take_doll = 0
                 print('You stuff the doll back under the bed.')
     else:
         if take_necklace == '1' or take_necklace == '2':
@@ -206,6 +212,7 @@ very expensive diamond necklace.''')
                 print('you put the necklace in your backpack')
                 total_score = total_score + 200
             else:
+                take_necklace = 0
                 print('you put the necklace back into the closet')
 
 intro()
