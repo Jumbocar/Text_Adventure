@@ -4,7 +4,6 @@ import time
 #Improvement ideas
 
 # add timers to make text flow better
-# be able to go back and grab item you prevously put back
 
 #game items
 #------------------------------------------#
@@ -55,8 +54,8 @@ def ending():
         print('''aquiring this many items was risky, but it will pay off once these items
 get sold for a quick buck.''')
     elif total_score == 200:
-        print('''after taking something from the house, A presence follows you home. 
-After only a few hours, you become incredibly ill and pass shortly after''')
+        print('''The stuff you took wasnt as valuable as you thought, leaving you in nearly
+the same position you were in before. ''')
     elif total_score == -200:
         print('''After grabbing some item, you tried to leave. However, the front doors were locked.
 turning around a dark presence consumes you.''')
@@ -144,6 +143,7 @@ cupboards and shelves to check. What would you like to look at?''')
         else:
             print('''While looking through the kitchen shelves,
 you come across old watch. Take it?''')
+            time.sleep(2)
             print('Take (1) | leave (2)')
             take_watch = input()
             if take_watch == '1':
